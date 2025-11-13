@@ -53,7 +53,7 @@
 - [WeChat](https://wechat.com)  
 - [中国报道海外版](https://www.china-report.net)  
 - [YouTube](https://youtube.com)
-- [(https://www.linkedin.com/) 
+- https://www.linkedin.com/
 ---
 
 ## 📞 联系我们 | Contact Us
