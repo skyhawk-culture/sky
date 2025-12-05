@@ -144,6 +144,97 @@
     <li>项目活动组织与企业培育计划</li>
   <p>热烈祝贺新加坡伙伴SGX、BakerTilly、东吴新加坡资本联合北京盈科律师事务所2025年12月2日在北京首次举办中国企业出海新加坡IPO路径推介论坛活动圆满落幕。<ul>
   </ul>
+  <!-- Chat Floating Button -->
+<div id="chat-toggle" style="
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: linear-gradient(135deg, #4a90e2, #357ABD); 
+    color: #fff; padding: 12px 16px; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-weight: bold; 
+    z-index: 9999;">
+  💬 在线交流
+</div>
+
+<!-- Chat Window -->
+<div id="chat-box" style="
+    width: 330px; 
+    height: 480px; 
+    position: fixed; 
+    bottom: 80px; 
+    right: 20px; 
+    background: #fff; 
+    border-radius: 16px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25); 
+    display: none; 
+    flex-direction: column; 
+    overflow: hidden;
+    z-index: 9999;">
+
+    <!-- Header -->
+    <div style="background:#357ABD; padding:15px; color:#fff; font-size:18px; font-weight:bold;">
+        Skyhawk 在线交流平台
+    </div>
+
+    <!-- Messages -->
+    <div id="messages" style="flex: 1; padding: 12px; overflow-y: auto; background: #f7f7f7;"></div>
+
+    <!-- Input Area -->
+    <div style="padding: 10px; background: #eee; display:flex;">
+        <input id="msg-input" type="text" placeholder="输入消息..." 
+               style="flex:1; padding:8px 10px; border-radius: 8px; border:1px solid #ccc;">
+        <button id="send-btn" style="
+            margin-left:8px; 
+            padding: 8px 15px; 
+            background:#357ABD; 
+            color:#fff; 
+            border:none; 
+            border-radius:8px; 
+            cursor:pointer;">
+            发送
+        </button>
+    </div>
+</div>
+<script>
+document.getElementById("chat-toggle").onclick = function () {
+    const box = document.getElementById("chat-box");
+    box.style.display = (box.style.display === "none") ? "flex" : "none";
+};
+
+document.getElementById("send-btn").onclick = sendMessage;
+document.getElementById("msg-input").addEventListener("keypress", function(e){
+    if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+    const input = document.getElementById("msg-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    const msgContainer = document.getElementById("messages");
+
+    // 用户消息
+    const userMsg = document.createElement("div");
+    userMsg.style = "margin:8px 0; text-align:right;";
+    userMsg.innerHTML = `<span style="background:#4a90e2; color:#fff; padding:8px 12px; border-radius:14px; display:inline-block;">${text}</span>`;
+    msgContainer.appendChild(userMsg);
+
+    input.value = "";
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+
+    // 模拟 AI 回复（你可随时升级成真实后端）
+    setTimeout(() => {
+        const bot = document.createElement("div");
+        bot.style = "margin:8px 0; text-align:left;";
+        bot.innerHTML = `<span style="background:#ddd; padding:8px 12px; border-radius:14px; display:inline-block;">收到：${text}</span>`;
+        msgContainer.appendChild(bot);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+    }, 600);
+}
+</script>
 
   <p>如需了解更多服务内容，请随时联系我们。</p>
 </section>
